@@ -12,6 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primaryColor: Colors.white,
+          textTheme: TextTheme(
+              bodyText1: TextStyle(fontSize: 25).apply(color: Colors.black))),
+      home: HomePage(),
     );
   }
 }
@@ -26,6 +31,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text(
+          'Today',
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+        elevation: 10,
+        centerTitle: true,
+      ),
+      body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: []),
+    );
   }
 }
