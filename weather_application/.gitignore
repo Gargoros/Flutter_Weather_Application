@@ -31,6 +31,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/Users/mikhailzhachko/Documents/STUDY/Flutter_Weather_Application/weather_application/lib/services/weather_api_key.dart
 
 # Symbolication related
 app.*.symbols
