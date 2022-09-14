@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:weather_application/views/additional_weather_information.dart';
+import 'package:weather_application/views/current_weather.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,10 +41,54 @@ class _HomePageState extends State<HomePage> {
           'Today',
           style: Theme.of(context).textTheme.bodyText1,
         ),
-        elevation: 10,
+        elevation: 0,
         centerTitle: true,
       ),
-      body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: []),
+      body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.005,
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.horizontal(),
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.pink,
+                      Colors.orange,
+                      Colors.green,
+                      Colors.blue,
+                      Colors.yellow,
+                      Colors.red
+                    ],
+                  )),
+            )),
+        currentWeather(Icons.water_drop, 'Minsk', '16°C', 'Rainy'),
+        Divider(
+          height: 40,
+          thickness: 4,
+          indent: MediaQuery.of(context).size.width * 0.3,
+          endIndent: MediaQuery.of(context).size.width * 0.3,
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        additionalWeatherInformation(
+            '57%', '1.0mm', '1019 hPa', '20 km/h', 'SE'),
+        Container(
+          child: Text(
+            "SHARE",
+            style: TextStyle(color: Colors.red, fontSize: 40),
+          ),
+        ),
+      ]),
+      bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.water_drop),
+          label: "Today",
+        ),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.cloudy_snowing), label: "Forecast")
+      ]),
     );
   }
 }
